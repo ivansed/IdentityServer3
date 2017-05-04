@@ -119,7 +119,7 @@ namespace IdentityServer3.Core.Configuration.Hosting
             
             var secure = 
                 options.AuthenticationOptions.CookieOptions.SecureMode == CookieSecureMode.Always || 
-                context.Request.Scheme == Uri.UriSchemeHttps;
+                (context.Request.Scheme == Uri.UriSchemeHttps && options.AuthenticationOptions.CookieOptions.SecureMode == CookieSecureMode.SameAsRequest);
 
             var path = context.Request.Environment.GetIdentityServerBasePath().CleanUrlPath();
             context.Response.Cookies.Append(cookieName, token, new Microsoft.Owin.CookieOptions

@@ -29,5 +29,9 @@ namespace IdentityServer3.Core.Configuration
         /// The secure flag will always be issued.
         /// </summary>
         Always = 1,
+        /// <summary>
+        /// The secure flag will never be issued.
+        /// </summary>
+        Never = 2
     }
 }

@@ -128,6 +128,8 @@ namespace Owin
                     return CookieSecureOption.Always;
                 case CookieSecureMode.SameAsRequest:
                     return CookieSecureOption.SameAsRequest;
+                case CookieSecureMode.Never:
+                    return CookieSecureOption.Never;
                 default:
                     throw new InvalidOperationException("Invalid CookieSecureMode");
             }

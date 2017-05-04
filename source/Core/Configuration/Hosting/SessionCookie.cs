@@ -48,7 +48,7 @@ namespace IdentityServer3.Core.Configuration.Hosting
             var path = context.Request.Environment.GetIdentityServerBasePath().CleanUrlPath();
             var secure =
                 identityServerOptions.AuthenticationOptions.CookieOptions.SecureMode == CookieSecureMode.Always ||
-                context.Request.Scheme == Uri.UriSchemeHttps;
+                (context.Request.Scheme == Uri.UriSchemeHttps && identityServerOptions.AuthenticationOptions.CookieOptions.SecureMode == CookieSecureMode.SameAsRequest);
 
             var options = new Microsoft.Owin.CookieOptions
             {
